@@ -271,9 +271,11 @@ MulArray3(float factor, float a, float b, float c )
 #include "glslprogram.cpp"
 
 // float NowS0, NowT0, NowD;
-float NowAd, NowBd, NowTol;
-GLSLProgram Pattern;
 
+// Variables for Project #1:
+float NowAd, NowBd, NowTol;
+bool  AnimateAd, AnimateBd, AnimateTol;
+GLSLProgram Pattern;
 
 // main program:
 
@@ -436,9 +438,18 @@ Display( )
 
 	// set the uniform variables that will change over time:
 
-	NowAd = 0.2f;
-	NowBd = 0.4f;
-	NowTol = 0.2f + 0.1f * sinf(2.f * F_PI * Time);
+	if( AnimateAd )
+		NowAd = 0.30f + 0.225f*sinf(2.f * F_PI * Time);
+    else
+      	NowAd = 0.10f;
+    if( AnimateBd )
+      	NowBd = 0.30f + 0.225f*sinf(2.f * F_PI * Time);
+    else
+      	NowBd = 0.10f;
+    if (AnimateTol)
+      	NowTol = 0.5f + 0.5f * sinf(2.f * F_PI * Time);
+    else
+      	NowTol = 0.f;
 	Pattern.SetUniformVariable((char*)"uAd", NowAd);
 	Pattern.SetUniformVariable((char*)"uBd", NowBd);
 	Pattern.SetUniformVariable((char*)"uTol", NowTol);
@@ -864,8 +875,8 @@ Keyboard( unsigned char c, int x, int y )
 
 	switch( c )
 	{
-	case 'f':
-	case 'F':
+		case 'f':
+		case 'F':
 		Freeze = !Freeze;
 		if (Freeze)
 			glutIdleFunc(NULL);
@@ -888,6 +899,22 @@ Keyboard( unsigned char c, int x, int y )
 		case ESCAPE:
 			DoMainMenu( QUIT );	// will not return here
 			break;				// happy compiler
+
+        // for Project #1:
+		case 'a':
+		case 'A':
+			AnimateAd = !AnimateAd;
+			break;
+
+		case 'b':
+	 	case 'B':
+		 AnimateBd = !AnimateBd;
+		break;
+
+		case 't':
+		case 'T':
+		AnimateTol = !AnimateTol;
+		break;
 
 		default:
 			fprintf( stderr, "Don't know what to do with keyboard hit: '%c' (0x%0x)\n", c, c );
@@ -1009,6 +1036,9 @@ Reset( )
 	NowColor = YELLOW;
 	NowProjection = PERSP;
 	Xrot = Yrot = 0.;
+    AnimateAd = false;
+    AnimateBd = false;
+    AnimateTol = false;
 }
 
 
