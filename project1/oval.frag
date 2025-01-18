@@ -1,8 +1,9 @@
 #version 330 compatibility
 
 // lighting uniform variables -- these can be set once and left alone:
-uniform float   uKa, uKd, uKs;	 // coefficients of each type of lighting -- make sum to 1.0
-uniform float   uShininess;		 // specular exponent
+uniform float   uKa, uKd, uKs;				  // coefficients of each type of lighting -- make sum to 1.0
+uniform float   uShininess;					  // specular exponent
+uniform vec4	uObjectColor, uEllipseColor;  // color component
 
 // uniform variables for Project #1 -- these should be set every time Display( ) is called:
 
@@ -18,8 +19,8 @@ in  vec3  vE;                   // vector from point to eye
 in  vec3  vMC;					// model coordinates
 
 // constant variables
-const vec3 OBJECTCOLOR          = vec3( 1.,	   0.875, 0.871 );           // color to make the object
-const vec3 ELLIPSECOLOR         = vec3( 0.416, 0.486, 0.635 );			 // color to make the ellipse
+// const vec3 OBJECTCOLOR          = vec3( 1.,	   0.875, 0.871 );           // color to make the object
+// const vec3 ELLIPSECOLOR         = vec3( 0.416, 0.486, 0.635 );			 // color to make the ellipse
 const vec3 SPECULARCOLOR        = vec3( 1., 1., 1. );
 
 void
@@ -40,17 +41,17 @@ main( )
 	float sc = numins*uAd + Ar;
 	float tc = numint*uBd + Br;
 
-	vec3 myColor = OBJECTCOLOR.rgb;
+	vec3 myColor = uObjectColor.rgb;
 	float d = (pow((s-sc)/Ar, 2.) +  pow((t-tc)/Br, 2.));
 	float m = smoothstep(1.-uTol, 1.+uTol, d);
 	if( d <= 1 )
 	{
-		myColor = ELLIPSECOLOR.rgb;
+		myColor = uEllipseColor.rgb;
 	}
 	if ((1.-uTol <= d) && (d <= 1.+uTol))
 	{
 		float bt = smoothstep(1.-uTol, 1.+uTol, d);
-		myColor = mix(ELLIPSECOLOR.rgb, OBJECTCOLOR.rgb, bt);
+		myColor = mix(uEllipseColor.rgb, uObjectColor.rgb, bt);
 	}
 
 	// apply the per-fragmewnt lighting to myColor:

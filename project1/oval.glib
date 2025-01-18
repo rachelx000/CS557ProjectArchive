@@ -4,14 +4,16 @@ LookAt 0 0 2  0 0 0  0 1 0
 
 Vertex		oval.vert
 Fragment	oval.frag
-Program Pattern						\
-		uKa <0. 0.1 1.0>			\
-		uKd <0. 0.6 1.0>			\
-		uKs <0. 0.3 1.0>			\
-		uShininess <0.5 10. 200.>		\
-		uAd           <.001 .1 .5>		\
-	    uBd           <.001 .1 .5>		\
-	    uTol          <0. 0. 1.>    
+Program Pattern								\
+		uKa			<0. 0.1 1.0>			\
+		uKd		    <0. 0.6 1.0>			\
+		uKs			<0. 0.3 1.0>			\
+		uShininess  <0.5 10. 200.>			\
+		uAd         <.001 .1 .5>			\
+	    uBd         <.001 .1 .5>			\
+	    uTol        <0. 0. 1.>				\
+		uEllipseColor  { 0.416, 0.486, 0.635, 1.} \
+		uObjectColor   {  1.,   0.875, 0.871, 1.}
 
 Sphere
 

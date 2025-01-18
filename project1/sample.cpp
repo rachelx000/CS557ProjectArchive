@@ -267,7 +267,7 @@ MulArray3(float factor, float a, float b, float c )
 //#include "osutorus.cpp"
 //#include "bmptotexture.cpp"
 //#include "loadobjfile.cpp"
-#include "keytime.cpp"
+//#include "keytime.cpp"
 #include "glslprogram.cpp"
 
 // float NowS0, NowT0, NowD;
@@ -813,7 +813,7 @@ InitGraphics( )
 	Pattern.UnUse(); 
 	*/
 
-	// Project #1
+	// Project #1:
 	Pattern.Init();
 	bool valid = Pattern.Create((char*)"oval.vert", (char*)"oval.frag");
 	if (!valid)
@@ -828,6 +828,8 @@ InitGraphics( )
 	Pattern.SetUniformVariable((char*)"uKd", 0.6f);
 	Pattern.SetUniformVariable((char*)"uKs", 0.3f);
 	Pattern.SetUniformVariable((char*)"uShininess", 12.f);
+	Pattern.SetUniformVariable((char*)"uEllipseColor", 0.416, 0.486, 0.635, 1.f);
+	Pattern.SetUniformVariable((char*)"uObjectColor",  1.f, 0.875, 0.871, 1.f);
 	Pattern.UnUse();
 
 }
@@ -908,12 +910,12 @@ Keyboard( unsigned char c, int x, int y )
 
 		case 'b':
 	 	case 'B':
-		 AnimateBd = !AnimateBd;
+			AnimateBd = !AnimateBd;
 		break;
 
 		case 't':
 		case 'T':
-		AnimateTol = !AnimateTol;
+			AnimateTol = !AnimateTol;
 		break;
 
 		default:
