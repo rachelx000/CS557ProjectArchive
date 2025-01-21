@@ -1,0 +1,27 @@
+##OpenGL GLIB
+Perspective 70.
+LookAt 0 0 3  0 0 0  0 1 0
+
+Vertex		ovalnoise.vert
+Fragment	ovalnoise.frag
+Program		Pattern							\
+			uNoiseAmp	<0. 0.  5.>			\
+			uNoiseFreq	<0. 1.	10.>		\
+			uAlpha		<0. 1.  1.>			\
+			uUseXYZ		<false>				\
+			uKa			<0. 0.4 1.>			\
+			uKd		    <0. 0.3 1.>			\
+			uKs			<0. 0.3 1.>			\
+			uShininess  <0.5 10. 200.>			\
+			uAd         <.01 .1 .5>				\
+			uBd         <.01 .1 .5>				\
+			uTol        <0.	 0. 1.>				\
+			uEllipseColor  { 0.616, 0.122, 0.243, 1.} \
+			uObjectColor   { 0.984, 0.875, 0.722, 1.}
+
+Sphere 1.0 50 50
+Sphere 0.5 50 50
+Rotate 90 0.0 1.0 0.0
+Translate 0.0 -0.15 0.0
+Scale 0.04 0.04 0.04
+Obj	  cup.obj
