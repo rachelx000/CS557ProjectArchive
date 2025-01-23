@@ -2,8 +2,8 @@
 Perspective 70.
 LookAt 0 0 3  0 0 0  0 1 0
 
-Vertex		pleatsB.vert
-Fragment	pleatsB.frag
+Vertex		pleats.vert
+Fragment	pleats.frag
 Program		Pattern							        \
 			uA			<0. 0.05  0.2>			    \
 			uP			<0. 0.5	2.>		            \
