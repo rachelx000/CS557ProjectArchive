@@ -78,7 +78,12 @@ main( )
 
 	// alpha value of the fragment outside the ellipse border can be adjusted
 	if ( d > 1 )
-		alpha = uAlpha;
+	{
+		if ( uAlpha > 0 )
+			alpha = uAlpha;
+		else
+			discard;
+	}
 
 	// apply the per-fragmewnt lighting to myColor:
 
