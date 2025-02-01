@@ -7,7 +7,7 @@ Fragment	pleats.frag
 Program		Pattern							        \
 			uA			<0. 0.05  0.2>			    \
 			uP			<0. 0.5	2.>		            \
-            uNoiseAmp   <0. 0.  5.>                \
+            uNoiseAmp   <0. 0.  5.>                 \
             uNoiseFreq  <1. 1.  5. >                \
 			uKa         <0. 0.1 1.0>                \
             uKd         <0. 0.6 1.0>                \
@@ -16,7 +16,7 @@ Program		Pattern							        \
             uLightX     <-20. 5. 20.>               \
             uLightY     <-20. 10. 20.>              \
             uLightZ     <-20. 20. 20.> 	            \
-            uColor      {0.976, 0.71, 0.706, 1.}    \
+            uColor      {0.66, 0.75, 0.98, 1.}      \
             uSpecularColor {1. 1. 1. 1.}
 
 QuadXY  0.2  1.  128 128
