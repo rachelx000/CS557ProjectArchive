@@ -1,0 +1,51 @@
+##OpenGL GLIB
+
+Perspective 70
+LookAt 0 0 3  0 0 0  0 1 0
+
+Vertex   texture.vert
+Fragment texture.frag
+Program  Texture  TexUnit 6
+
+Texture2D  6  daylight_px.bmp
+QuadYZ 5. 5. 10 10
+
+Texture2D  6  daylight_nx.bmp
+QuadYZ -5. 5. 10 10
+
+Texture2D  6  daylight_py.bmp
+QuadXZ 5. 5. 10 10
+
+Texture2D  6  daylight_ny.bmp
+QuadXZ -5. 5. 10 10
+
+Texture2D  6  daylight_pz.bmp
+QuadXY 5. 5. 10 10
+
+Texture2D  6  daylight_nz.bmp
+QuadXY -5. 5. 10 10
+
+CubeMap 6 daylight_px.bmp daylight_nx.bmp  daylight_py.bmp daylight_ny.bmp   daylight_nz.bmp daylight_pz.bmp
+CubeMap 7 daylight_px.bmp daylight_nx.bmp  daylight_py.bmp daylight_ny.bmp   daylight_nz.bmp daylight_pz.bmp
+
+Background 0. 0. 0.
+LookAt 0 0 3  0 0 0  0 1 0
+
+Vertex		diamond.vert
+Fragment	diamond.frag
+Program    	Diamond				\
+			uAmp <0. 0.8 5.>     \
+            uFreq <0. 0.7 1.>    \
+            uReflectUnit 6             	\
+           	uRefractUnit 7             	\
+		    uMix <0. 0. 1.>				\
+		    uEtaRed   <0.5 2.0 2.5>		\
+		    uEtaBlue  <0.5 2.15 2.5>	    \
+		    uEtaGreen <0.5 1.7 2.5>		
+PushMatrix
+Translate 0.8 -0.1. -0.5
+Rotate -125 0. 1. 0.
+Rotate -5. 0. 0. 1.
+Scale 0.45
+Obj snake.obj
+PopMatrix
