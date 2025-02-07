@@ -3,9 +3,9 @@
 
 in vec2 vST;
 
-uniform sampler2D CubeUnit, GlassUnit, DiamondUnit;
+uniform sampler2D CubeUnit, GlassUnit, DiamondUnit, ScreenUnit;
 uniform float	  uSc, uTc, uRad;
-uniform float	  uTransit;
+uniform float	  uTransit, uChromakey;
 uniform bool	  uUseLens;
 
 const vec3 WHITE = vec3( 1., 1., 1. ) ;
@@ -19,6 +19,7 @@ main( )
 	vec3 CubeRGB = texture(CubeUnit, vST).rgb;
 	vec3 GlassRGB = texture(GlassUnit, vST).rgb;
 	vec3 DiamondRGB = texture(DiamondUnit, vST).rgb;
+	vec3 ScreenRGB = texture(ScreenUnit, vST).rgb;
 
 	vec3 color;
 	if ( r > uRad )
@@ -40,6 +41,12 @@ main( )
 		if ( r > uRad - 0.005 ) 
 			color = mix( WHITE, color, 0.5 );
 	}
-	gl_FragColor = vec4( color, 1. );
+	
+	// Use chromakey to replace the green portion of the screen with the cube mapping results:
+	if (ScreenRGB.g > uChromakey && ScreenRGB.r < 1-uChromakey && ScreenRGB.b < 1-uChromakey)
+	{
+		ScreenRGB = color; 
+	}
+	gl_FragColor = vec4( ScreenRGB, 1. );
 }
 

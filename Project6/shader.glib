@@ -78,6 +78,7 @@ RendertoTexture
 Background 0. 0. 0.
 Clear
 LookAt 0 0 3  0 0 0  0 1 0
+Texture2D 10 screen.bmp
 
 Vertex   image.vert
 Fragment image.frag 
@@ -85,10 +86,12 @@ Program  Filter                      \
          CubeUnit    6               \
          GlassUnit   8               \
          DiamondUnit 9               \
+         ScreenUnit  10              \
+         uChromakey  <0.  0.515   1.>   \
          uTransit    <0.  1.   1.>   \
          uSc         <0.  0.5  1.>   \
          uTc         <0.  0.5  1.>   \
-         uRad        <0.  0.25 0.5>  
+         uRad        <0.  0.20 0.5>  
          
 
 QuadXY   .2 2.
