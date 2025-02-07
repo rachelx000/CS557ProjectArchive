@@ -4,13 +4,13 @@ in vec3 vNormal;
 in vec3 vEyeDir;
 in vec3 vMC;
 
-uniform float uEta;
+
 uniform samplerCube uReflectUnit;
 uniform samplerCube uRefractUnit;
-uniform float uMix, uWhiteMix;
-
 uniform sampler3D Noise3;
-uniform float	  uNoiseAmp, uNoiseFreq;
+uniform float uEta;
+uniform float uMix, uWhiteMix;
+uniform float uNoiseAmp, uNoiseFreq;
 
 // if not mixing with white, it's hard to observe the object (same color as background)
 const vec3 WHITE = vec3( 1.,1.,1. );
@@ -72,9 +72,9 @@ void main( )
     vec3 reflectColor = texture( uReflectUnit, reflectVector ).rgb;
     vec3 refractVector = refract( eye, normal, uEta );
     vec3 refractColor;
-    if( all( equal( refractVector, vec3(0.,0.,0.) ) ) ) // like saying “if all elements of the refractVector are == 0.0 …”
+    if( all( equal( refractVector, vec3(0.,0.,0.) ) ) )
     {
-        refractColor = reflectColor; // . . . then treat this as a total internal reflection
+        refractColor = reflectColor;
     }
     else
     {
