@@ -1,3 +1,0 @@
-
-0(28) : error C1503: undefined variable "uEtaBlue"
-
