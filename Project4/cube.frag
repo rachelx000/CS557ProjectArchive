@@ -3,6 +3,7 @@
 in vec3 vNormal;
 in vec3 vEyeDir;
 in vec3 vMC;
+
 uniform float uEta;
 uniform samplerCube uReflectUnit;
 uniform samplerCube uRefractUnit;
@@ -67,9 +68,9 @@ void main( )
 	normal = normalize( gl_NormalMatrix * normal );
 
     // if you are bump-mapping, apply noise to normal here using vMC
-    vec3 reflectVector = reflect( vEyeDir, normal );
+    vec3 reflectVector = reflect( eye, normal );
     vec3 reflectColor = texture( uReflectUnit, reflectVector ).rgb;
-    vec3 refractVector = refract( vEyeDir, normal, uEta );
+    vec3 refractVector = refract( eye, normal, uEta );
     vec3 refractColor;
     if( all( equal( refractVector, vec3(0.,0.,0.) ) ) ) // like saying “if all elements of the refractVector are == 0.0 …”
     {
