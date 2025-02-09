@@ -36,7 +36,7 @@ Program    	Cube				                \
         	uNoiseAmp    <0. 0. 5.>	            \
         	uNoiseFreq   <0.0 0.1 0.5>          \
 		    uWhiteMix    <0. 0.1 0.5>			\
-		    uEta         <1.0 1.025 1.4>        \
+		    uEta         <1.0 1.025 1.2>        \
 
 Scale 0.4
 Obj cow.obj
