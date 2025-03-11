@@ -1,0 +1,23 @@
+##OpenGL GLIB
+Perspective 70.
+LookAt 0 2 2  0 0 0  0 1 0
+Timer 60
+
+Vertex		wave.vert
+Fragment	wave.frag
+Program		Wave							        \
+            uDx         <-1. 0.  1.>                \
+            uDy         <-1. 0.  1.>                \
+			uAmp		<0. 0.0  0.2>			    \
+			uFreq		<0.1 1. 50.>		        \
+            uSpeed      <0.1 1. 50.>             \
+			uKa         <0. 0.2 1.0>                \
+            uKd         <0. 0.6 1.0>                \
+            uKs         <0. 0.3 1.0>                \
+            uShininess  <1. 10. 100.>               \
+            uLightX     <-20. 5. 20.>               \
+            uLightY     <-20. 10. 20.>              \
+            uLightZ     <-20. 20. 20.> 	            \
+            uColor      {0.40, 1.0, 0.95, 1.}    
+
+QuadXZ  0.  1.  128 128
