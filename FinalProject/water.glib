@@ -2,32 +2,41 @@
 Perspective 70.
 LookAt 0 2 2  0 0 0  0 1 0
 Texture2D   6   water_normal.bmp
+Texture2D   7   marble.bmp
+Texture2D   8   water_caustic.bmp
 Timer 60
 
 Vertex		water.vert
 Fragment	water.frag
-Program		WaterSimulation							\
-            WaterNormal     6                       \
-            uSineWave       <false>                 \
-            uSinDx          <-1. 0.   1.>           \
-            uSinDy          <-1. 0.   1.>           \
-			uSinAmp		    <0.  0.0  0.2>			\
-			uSinFreq		<0.1 1.   50.>		    \
-            uSinSpeed       <0.1 1.   50.>          \
-            uGerstnerWave   <false>                 \
-            uGerstSteep     <0.  0.1  1.>           \
-            uGerstDx        <-1. 0.   1.>           \
-            uGerstDy        <-1. 0.   1.>           \
-            uGerstAmp       <0.  0.0  0.1>          \
-            uGerstFreq      <0.1 1.   50.>          \
-            uGerstSpeed     <0.1 1.   50.>          \
-			uKa             <0.  0.45 1.0>          \
-            uKd             <0.  0.35 1.0>          \
-            uKs             <0.  0.30 1.0>          \
-            uShininess      <1.  10. 100.>          \
-            uLightX         <-20. 5. 20.>           \
-            uLightY         <-20. 10. 20.>          \
-            uLightZ         <-20. 20. 20.> 	        \
-            uColor          {0.40, 1.0, 0.95, 1.}    
+Program		WaterSimulation							 \
+            WaterNormal      6                       \
+            GroundTex        7                       \
+            CausticTex       8                       \
+            uSineWave        <false>                 \
+            uSinDx           <-1.   0.    1.>        \
+            uSinDy           <-1.   0.    1.>        \
+			uSinAmp		     <0.    0.0   0.2>		 \
+			uSinFreq		 <0.1   1.    50.>		 \
+            uSinSpeed        <0.1   1.    50.>       \
+            uGerstnerWave    <false>                 \
+            uGerstSteep      <0.    0.1   1.>        \
+            uGerstDx         <-1.   0.    1.>        \
+            uGerstDy         <-1.   0.    1.>        \
+            uGerstAmp        <0.    0.0   0.1>       \
+            uGerstFreq       <0.1   1.    50.>       \
+            uGerstSpeed      <0.1   1.    50.>       \
+            uUVDisIntensity  <0.1.  0.5   1. >       \
+            uCausticVisible  <0.1   0.8   1. >       \
+            uCausticOffset   <-0.5  0.1   0.5>       \
+            uChromaticOffset <-0.01 0.005 0.01>      \
+			uKa              <0.    0.45  1.0>       \
+            uKd              <0.    0.35  1.0>       \
+            uKs              <0.    0.30  1.0>       \
+            uShininess       <1.    10.   100.>      \
+            uLightX          <-20.  5.    20.>       \
+            uLightY          <-20.  10.   20.>       \
+            uLightZ          <-20.  20.   20.> 	     \
+            uColor           {0.40, 1.0, 0.95, 1.}    
 
 QuadXZ  0.  1.  128 128
+QuadXZ  -0.7  1. 128 128  
