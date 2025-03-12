@@ -20,7 +20,6 @@ out vec3 vN;
 out vec3 vL;
 out vec3 vE;
 out vec2 vST;
-out vec3 vV;
 
 float SineWave( vec3 vertex, vec2 direction, float amplitude, float frequency, float speed, float time)
 {
@@ -59,56 +58,48 @@ void
 main( )
 {	
 	
-	vV = gl_Vertex.xyz;
-	
-	if ( vV.y >= -0.0001 )
-	{
-		// Displace the water surface if needed
-		vec3  displacement = vec3(0, 0, 0);
-		vec3  normal = vec3(0, 0, 0);
-		// If the sine wave model is applied:
-		if (uSineWave)
-		{
-			vec2  sinDirect = vec2(uSinDx, uSinDy);
-			// calculate y-displacement for the sine wave:
-			float displaced_y = SineWave(vV, sinDirect, uSinAmp, uSinFreq, uSinSpeed, Timer);	
-			displacement.y += displaced_y;
-			// calculate the normal displacement after y-displacement by the sine wave:
-			normal += SineWaveNormal(vV, sinDirect, uSinAmp, uSinFreq, uSinSpeed, Timer);
-		}
+	vec3  vert = gl_Vertex.xyz;
+	vec3  displacement = vec3(0, 0, 0);
+	vec3  normal = vec3(0, 0, 0);
 
-		// If the gerstner wave model is applied:
-		if ( uGerstnerWave )
-		{
-			vec2 gerstDirect = vec2(uGerstDx, uGerstDy);
-			// calculate x, y, z-displacement for the gerstner wave:
-			displacement += GesternerWave(vV, gerstDirect, uGerstSteep, uGerstAmp, uGerstFreq, uGerstSpeed, Timer);
-			// calculate the normal displacement after displacement by the gerstner wave:
-			normal += vec3(0., 1., 0.) - GesternerNormal(vV, gerstDirect, uGerstSteep, uGerstAmp, uGerstFreq, uGerstSpeed, Timer);
-		}
+	// If the sine wave model is applied:
+	if (uSineWave)
+	{
+		vec2  sinDirect = vec2(uSinDx, uSinDy);
+		// calculate y-displacement for the sine wave:
+		float displaced_y = SineWave(vert, sinDirect, uSinAmp, uSinFreq, uSinSpeed, Timer);	
+		displacement.y += displaced_y;
+		// calculate the normal displacement after y-displacement by the sine wave:
+		normal += SineWaveNormal(vert, sinDirect, uSinAmp, uSinFreq, uSinSpeed, Timer);
+	}
+
+	// If the gerstner wave model is applied:
+	if ( uGerstnerWave )
+	{
+		vec2 gerstDirect = vec2(uGerstDx, uGerstDy);
+		// calculate x, y, z-displacement for the gerstner wave:
+		displacement += GesternerWave(vert, gerstDirect, uGerstSteep, uGerstAmp, uGerstFreq, uGerstSpeed, Timer);
+		// calculate the normal displacement after displacement by the gerstner wave:
+		normal += vec3(0., 1., 0.) - GesternerNormal(vert, gerstDirect, uGerstSteep, uGerstAmp, uGerstFreq, uGerstSpeed, Timer);
+	}
 	
-		if ( uSineWave || uGerstnerWave )
-		{
-			// displace the vertex and perturb the normal if any wave model is used
-			vV += displacement;
-			vN = normalize( normal );
-		}
-		else {
-			// only compute the normal if any wave model is not used
-			vN = normalize( gl_Normal );
-		}
+	if ( uSineWave || uGerstnerWave )
+	{
+		// displace the vertex and perturb the normal if any wave model is used
+		vert += displacement;
+		vN = normalize( gl_NormalMatrix * normal );
 	}
 	else {
-		// Perform nothing for the water floor
-		vN = normalize( gl_Normal );
+		// only compute the normal if any wave model is not used
+		vN = normalize( gl_NormalMatrix * gl_Normal );
 	}
 
 	// Calculate the vectors for lighting:
-	vec4 ECposition = gl_ModelViewMatrix * vec4( vV, 1. );
+	vec4 ECposition = gl_ModelViewMatrix * vec4( vert, 1. );
 	vec3 LightPosition = vec3( uLightX, uLightY, uLightZ );		// light coordinate position
 	vL = normalize( LightPosition - ECposition.xyz );           // vector from the point to the light position
 	vE = normalize( vec3( 0., 0., 0. ) - ECposition.xyz );		// vector from the point to the eye position
 	vST = gl_MultiTexCoord0.st;
 
-	gl_Position = gl_ModelViewProjectionMatrix * vec4( vV, 1. );
+	gl_Position = gl_ModelViewProjectionMatrix * vec4( vert, 1. );
 }

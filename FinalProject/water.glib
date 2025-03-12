@@ -1,13 +1,12 @@
 ##OpenGL GLIB
-
 Perspective 70.
 LookAt 0 2 2  0 0 0  0 1 0
 Texture2D   6   water_normal.bmp
 Timer 60
 
-Vertex		wave.vert
-Fragment	wave.frag
-Program		Wave							        \
+Vertex		water.vert
+Fragment	water.frag
+Program		WaterSimulation							\
             WaterNormal     6                       \
             uSineWave       <false>                 \
             uSinDx          <-1. 0.   1.>           \
@@ -22,8 +21,6 @@ Program		Wave							        \
             uGerstAmp       <0.  0.0  0.1>          \
             uGerstFreq      <0.1 1.   50.>          \
             uGerstSpeed     <0.1 1.   50.>          \
-            uLightMapHeight <0.  0.3  0.5>          \
-            uCausticMix     <0.  0.8  1.>           \
 			uKa             <0.  0.45 1.0>          \
             uKd             <0.  0.35 1.0>          \
             uKs             <0.  0.30 1.0>          \
@@ -34,4 +31,3 @@ Program		Wave							        \
             uColor          {0.40, 1.0, 0.95, 1.}    
 
 QuadXZ  0.  1.  128 128
-QuadXZ  -1.  1. 128 128
