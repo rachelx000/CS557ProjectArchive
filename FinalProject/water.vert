@@ -62,7 +62,9 @@ main( )
 {	
 	vec3  vert = gl_Vertex.xyz;
 	vV = vert;
-	if (vV.y > -0.5)
+
+	// Wave function is only applied to the surface layer:
+	if (vV.y > -0.1)
 	{
 		vec3  displacement = vec3(0, 0, 0);
 		vec3  normal = vec3(0, 0, 0);
@@ -109,6 +111,8 @@ main( )
 	vL = normalize( LightPosition - ECposition.xyz );           // vector from the point to the light position
 	vE = normalize( vec3( 0., 0., 0. ) - ECposition.xyz );		// vector from the point to the eye position
 	vST = gl_MultiTexCoord0.st;
+	if (vV.y < -0.1)
+		vST = abs(vec2(0., 1.) - gl_MultiTexCoord0.st);			// keep the surface and floor have the same texture coordinate
 
 	gl_Position = gl_ModelViewProjectionMatrix * vec4( vert, 1. );
 }
