@@ -32,7 +32,6 @@ Program		WaterSimulation							 \
             uWaterRefractMix <0.1   0.65  1. >       \
             uCausticVisible  <0.1   0.6   1. >       \
             uCausticWave     <0.1.  0.8   1. >       \
-            uCausticVisible  <0.1   0.6   1. >       \
             uCausticOffset   <-0.5  0.1   0.5>       \
             uChromaticOffset <-0.01 0.005 0.01>      \
             uShowFoam        <false>                 \
