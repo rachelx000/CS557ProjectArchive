@@ -7,13 +7,13 @@ uniform vec4    uColor;
 
 // uniform variables for the Sine wave model:
 uniform bool	uSineWave;
-uniform float	uSinDx, uSinDy;
+uniform float	uSinDx, uSinDz;
 uniform float	uSinAmp, uSinFreq, uSinSpeed;
 
 // uniform variables for the Gerstner wave model:
 uniform bool	uGerstnerWave;
 uniform float	uGerstSteep;
-uniform float	uGerstDx, uGerstDy;
+uniform float	uGerstDx, uGerstDz;
 uniform float	uGerstAmp, uGerstFreq, uGerstSpeed;
 uniform float   Timer;
 
@@ -77,7 +77,7 @@ main( )
 	// Recalculate the wave displacement for the vertex to align the texture mapping with water wave
 	if ( uSineWave )
 	{
-		float displaced_y = SineWave(vV, vec2(uSinDx, uSinDy), uSinAmp, uSinFreq, uSinSpeed, Timer);	
+		float displaced_y = SineWave(vV, vec2(uSinDx, uSinDz), uSinAmp, uSinFreq, uSinSpeed, Timer);	
 		vec2 displacedUV = vST + uCausticWave*vec2( 0.0, displaced_y );
 
 		// Separate the rgb channels to simulate chromatic aberration:
@@ -87,7 +87,7 @@ main( )
 	}
 	if ( uGerstnerWave )
 	{
-		vec2 displacedxz = GesternerWave(vV, vec2(uGerstDx, uGerstDy), uGerstSteep, uGerstAmp, uGerstFreq, uGerstSpeed, Timer);	
+		vec2 displacedxz = GesternerWave(vV, vec2(uGerstDx, uGerstDz), uGerstSteep, uGerstAmp, uGerstFreq, uGerstSpeed, Timer);	
 		vec2 displacedUV = vST + uCausticWave*displacedxz + vec2(-uCausticOffset, uCausticOffset);
 		gerstnerCaustic.r = texture( CausticTexUnit, displacedUV + vec2( uChromaticOffset, uChromaticOffset ) * 0.5 ).r;
 		gerstnerCaustic.g = texture( CausticTexUnit, displacedUV + vec2( -uChromaticOffset, -uChromaticOffset ) * 0.5 ).g;

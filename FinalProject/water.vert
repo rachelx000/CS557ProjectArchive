@@ -5,13 +5,13 @@ uniform float uLightX, uLightY, uLightZ;
 
 // uniform variables for the Sine wave model:
 uniform bool	uSineWave;
-uniform float	uSinDx, uSinDy;
+uniform float	uSinDx, uSinDz;
 uniform float	uSinAmp, uSinFreq, uSinSpeed;
 
 // uniform variables for the Gerstner wave model:
 uniform bool	uGerstnerWave;
 uniform float	uGerstSteep;
-uniform float	uGerstDx, uGerstDy;
+uniform float	uGerstDx, uGerstDz;
 uniform float	uGerstAmp, uGerstFreq, uGerstSpeed;
 uniform float   Timer;
 
@@ -72,7 +72,7 @@ main( )
 		// If the sine wave model is applied:
 		if (uSineWave)
 		{
-			vec2  sinDirect = vec2(uSinDx, uSinDy);
+			vec2  sinDirect = vec2(uSinDx, uSinDz);
 			// calculate y-displacement for the sine wave:
 			float displaced_y = SineWave(vert, sinDirect, uSinAmp, uSinFreq, uSinSpeed, Timer);	
 			displacement.y += displaced_y;
@@ -83,7 +83,7 @@ main( )
 		// If the gerstner wave model is applied:
 		if ( uGerstnerWave )
 		{
-			vec2 gerstDirect = vec2(uGerstDx, uGerstDy);
+			vec2 gerstDirect = vec2(uGerstDx, uGerstDz);
 			// calculate x, y, z-displacement for the gerstner wave:
 			displacement += GesternerWave(vert, gerstDirect, uGerstSteep, uGerstAmp, uGerstFreq, uGerstSpeed, Timer);
 			// calculate the normal displacement after displacement by the gerstner wave:

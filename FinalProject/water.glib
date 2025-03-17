@@ -17,18 +17,18 @@ Program		WaterSimulation							 \
             FoamTexUnit          10                  \
             uSineWave        <false>                 \
             uSinDx           <-1.   0.    1.>        \
-            uSinDy           <-1.   0.    1.>        \
+            uSinDz           <-1.   0.    1.>        \
 			uSinAmp		     <0.    0.0   0.2>		 \
 			uSinFreq		 <0.1   1.    100.>		 \
             uSinSpeed        <0.0   0.    50.>       \
             uGerstnerWave    <false>                 \
             uGerstSteep      <0.    0.1   1.>        \
             uGerstDx         <-1.   0.    1.>        \
-            uGerstDy         <-1.   0.    1.>        \
+            uGerstDz         <-1.   0.    1.>        \
             uGerstAmp        <0.    0.0   0.1>       \
             uGerstFreq       <0.1   1.    100.>      \
             uGerstSpeed      <0.0   0.    50.>       \
-            uWaterTiling     <0.1   1.5   20.>       \
+            uWaterTiling     <0.1   2.5   20.>       \
             uWaterRefractMix <0.1   0.65  1. >       \
             uCausticVisible  <0.1   0.6   1. >       \
             uCausticWave     <0.1.  0.8   1. >       \
@@ -39,7 +39,7 @@ Program		WaterSimulation							 \
             uKa              <0.  0.45 1.0>          \
             uKd              <0.  0.35 1.0>          \
             uKs              <0.  0.20 1.0>          \
-            uShininess       <1.  400. 500.>         \
+            uShininess       <1.  250. 500.>         \
             uLightX          <-20. 5. 20.>           \
             uLightY          <-20. 10. 20.>          \
             uLightZ          <-20. 20. 20.> 	     \
