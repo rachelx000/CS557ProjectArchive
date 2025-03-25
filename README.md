@@ -1,23 +1,17 @@
 # CS557ProjectArchive
 ### Rachel Xing
 
-<style>
-table td{
-    width: 50%;
-}
-</style>
-
 <table>
     <tr>
-        <td ><b style="font-size:20px">Preview</b></td>
-        <td><b style="font-size:20px">Project Description</b></td>
+        <td style="width: 50%;"><b style="font-size:20px">Preview</b></td>
+        <td style="width: 50%;"><b style="font-size:20px">Project Description</b></td>
     </tr>
     <tr>
-        <td>
+        <td style="width: 50%;">
             <img src="gif/Project1.gif"
              alt="Project1"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
-        <td style="vertical-align: top;">
+        <td style="width: 50%; vertical-align: top;">
             <b style="font-size:18px">Project #1: Step- and Blended-edged Elliptical Dots</b>
             <br><br>
             <text style="font-size:16px">This project shows the use of GLSL vertex and fragment shaders to create a 
@@ -25,11 +19,11 @@ table td{
         </td>
     </tr>
     <tr>
-        <td>
+        <td style="width: 50%;">
             <img src="gif/Project2.gif"
              alt="Project2"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
-        <td style="vertical-align: top;">
+        <td style="width: 50%; vertical-align: top;">
             <b style="font-size:18px">Project #2: Noisy Elliptical Dots</b>
             <br><br>
             <text style="font-size:16px">
@@ -40,11 +34,11 @@ table td{
         </td>
     </tr>
     <tr>
-        <td>
+        <td style="width: 50%;">
             <img src="gif/Project3.gif"
              alt="Project3"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
-        <td style="vertical-align: top;">
+        <td style="width: 50%; vertical-align: top;">
             <b style="font-size:18px">Project #3A&B: Displacement Mapping, Bump Mapping, and Lighting</b>
             <br><br>
             <text style="font-size:16px"> This project implements a shader that applies displacement mapping and per-fragment
@@ -53,11 +47,11 @@ table td{
         </td>
     </tr>
     <tr>
-        <td>
+        <td style="width: 50%;">
             <img src="gif/Project4.gif"
              alt="Project4"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
-        <td style="vertical-align: top;">
+        <td style="width: 50%; vertical-align: top;">
             <b style="font-size:18px">Project #4: Cube Mapping Reflective and Refractive Surfaces</b>
             <br><br>
             <text style="font-size:16px"> This project implements a shader to simulate reflection and refraction effects 
@@ -65,11 +59,11 @@ table td{
         </td>
     </tr>
     <tr>
-        <td>
+        <td style="width: 50%;">
             <img src="gif/Project5.gif"
              alt="Project5"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
-        <td style="vertical-align: top;">
+        <td style="width: 50%; vertical-align: top;">
             <b style="font-size:18px">Project #5: Image Manipulation in a "Magic Lens"</b>
             <br><br>
             <text style="font-size:16px"> This project implements a shader for a "magic lens" that can apply magnification, 
@@ -77,11 +71,11 @@ table td{
         </td>
     </tr>
     <tr>
-        <td>
+        <td style="width: 50%;">
             <img src="gif/Project6.gif"
              alt="Project6"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
-        <td style="vertical-align: top;">
+        <td style="width: 50%; vertical-align: top;">
             <b style="font-size:18px">Project #6: The Snake Menagerie Project</b>
             <br><br>
             <text style="font-size:16px"> This project implements a shader that renders a sidewinding snake with a 
@@ -91,11 +85,11 @@ table td{
         </td>
     </tr>
     <tr>
-        <td>
+        <td style="width: 50%;">
             <img src="gif/Project7.gif"
              alt="Project7"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
-        <td style="vertical-align: top;">
+        <td style="width: 50%; vertical-align: top;">
             <b style="font-size:18px">Project #7: The Snake Menagerie Project</b>
             <br><br>
             <text style="font-size:16px"> This project implements a geometry shader that can transform the triangle mesh of a
@@ -104,7 +98,7 @@ table td{
         </td>
     </tr>
     <tr>
-        <td>
+        <td style="width: 50%;">
             <img src="gif/finalProject.gif"
              alt="finalProject"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
