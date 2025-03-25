@@ -1,13 +1,19 @@
 # CS557ProjectArchive
 ### Rachel Xing
 
+<style>
+table td{
+    width: 50%;
+}
+</style>
+
 <table>
     <tr>
-        <td><b style="font-size:20px">Preview</b></td>
+        <td ><b style="font-size:20px">Preview</b></td>
         <td><b style="font-size:20px">Project Description</b></td>
     </tr>
     <tr>
-        <td style="width: 50%;">
+        <td>
             <img src="gif/Project1.gif"
              alt="Project1"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
@@ -19,7 +25,7 @@
         </td>
     </tr>
     <tr>
-        <td style="width: 50%;">
+        <td>
             <img src="gif/Project2.gif"
              alt="Project2"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
@@ -34,7 +40,7 @@
         </td>
     </tr>
     <tr>
-        <td style="width: 50%;">
+        <td>
             <img src="gif/Project3.gif"
              alt="Project3"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
@@ -47,7 +53,7 @@
         </td>
     </tr>
     <tr>
-        <td style="width: 50%;">
+        <td>
             <img src="gif/Project4.gif"
              alt="Project4"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
@@ -59,7 +65,7 @@
         </td>
     </tr>
     <tr>
-        <td style="width: 50%;">
+        <td>
             <img src="gif/Project5.gif"
              alt="Project5"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
@@ -71,7 +77,7 @@
         </td>
     </tr>
     <tr>
-        <td style="width: 50%;">
+        <td>
             <img src="gif/Project6.gif"
              alt="Project6"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
@@ -85,7 +91,7 @@
         </td>
     </tr>
     <tr>
-        <td style="width: 50%;">
+        <td>
             <img src="gif/Project7.gif"
              alt="Project7"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
@@ -98,7 +104,7 @@
         </td>
     </tr>
     <tr>
-        <td style="width: 50%;">
+        <td>
             <img src="gif/finalProject.gif"
              alt="finalProject"
              style="width: 100%; float: left; margin-right: 10px;" /></td>
